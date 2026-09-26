@@ -1,0 +1,44 @@
+%% Draft generated WITHOUT the ByteBites_Design_Reference.md attached (standard chat, no scope guidance)
+classDiagram
+    class Customer {
+        +String id
+        +String name
+        +String email
+        +String password
+        +list purchase_history
+        +login()
+        +register()
+    }
+
+    class MenuItem {
+        +String name
+        +float price
+        +String category
+        +float popularity_rating
+    }
+
+    class Menu {
+        +list items
+        +addItem(item)
+        +removeItem(item)
+    }
+
+    class Order {
+        +list selected_items
+        +float total_cost
+        +String status
+        +PaymentMethod payment
+        +computeTotal()
+        +submitOrder()
+    }
+
+    class PaymentMethod {
+        +String cardNumber
+        +String provider
+        +charge(amount)
+    }
+
+    Customer --> Order
+    Order --> MenuItem
+    Menu --> MenuItem
+    Order --> PaymentMethod
