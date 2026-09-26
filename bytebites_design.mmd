@@ -1,0 +1,27 @@
+%% Final diagram, produced WITH ByteBites_Design_Reference.md attached for scope guidance
+classDiagram
+    class Customer {
+        +String name
+        +list purchase_history
+    }
+
+    class MenuItem {
+        +String name
+        +float price
+        +String category
+        +float popularity_rating
+    }
+
+    class Menu {
+        +list items
+        +filterByCategory(category)
+    }
+
+    class Transaction {
+        +list selected_items
+        +computeTotalCost()
+    }
+
+    Menu --> MenuItem
+    Customer --> Transaction
+    Transaction --> MenuItem
